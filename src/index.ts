@@ -4,7 +4,7 @@ import type {
 	Records as _Records,
 } from "@atcute/client/lexicons";
 import "@atcute/bluesky/lexicons";
-import { EventEmitter } from "node:events";
+import { EventEmitter } from "eventemitter3";
 import { WebSocket } from "partysocket";
 
 /** Record mappings. */
@@ -268,6 +268,7 @@ const jetstream = new Jetstream({
 	 * @param listener The callback function, called when the event is emitted.
 	 */
 	override on(event: string, listener: (...args: any[]) => void) {
+		// @ts-ignore
 		return super.on(event, listener as never);
 	}
 }
